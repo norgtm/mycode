@@ -1,2 +1,3 @@
 # mycode
-Learning to trak my code
+Learning to track my code
+# mycode Python practice
