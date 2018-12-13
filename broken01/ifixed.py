@@ -1,26 +1,37 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # A program that prompts a user for two operators and and operation (plus or minus)
 # the program then shows the result.
 # The user may enter 'q' to exit the program.
-calc1 = 0.0
-calc2 = 0.0
-operation = ''
-while (calc1 != 'q')
-    print('\nWhat is the first operator? Or, enter q to quit: ')
-    calc1 = raw_input()
-    if calc1 == 'Q':
-        break
-    calc1 = float(calc1)
-    print('\nWhat is the second operator? Or, enter q to quit: ')
-    calc2 = raw_input()
-    if calc2 == 'q':
-        break
-    calc2 = float(calc2)
-    print('Enter an operation to perform on the two operators (+ or -): ')
-    operation = raw_input()
-    if operation == '+':
-        print(\n + str(calc1) + ' + ' + str(calc2) + ' = ' + str(calc1 + calc2))
-    ifel operation == '-':
-        print('\n' + str(calc1) + ' - ' + str(calc2) + ' = ' + str(calc1 - calc2))
+while (True):
+    a = input('What is the first operator? or, enter q to quit: ')
+    if a.replace('-', '',1).replace('.', "",1).isnumeric(): 
+        op1 = float(a)
     else:
-        print('\n Not a valid entry. Restarting...')
+        op1 = a.lower()
+        if ( op1 == 'q' ):
+            print("You have asked to quit.  Goodbye!")
+            break
+        else:
+            print("You name entered a non-numeric value...exiting")
+            break
+        
+    b = input('What is the second operator? or, enter q to quit: ')
+    if b.replace('-', '',1).replace('.', "",1).isnumeric(): 
+        op2 = float(b)
+    else:
+        op2 = b.lower()
+        if ( op2 == 'q' ):
+            print("You have asked to quit.  Goodbye!")
+            break
+        else:
+            print("You name entered a non-numeric value...exiting")
+            break
+
+    o = input('Enter the operation to perform on the two operators (+ or -): ')
+    if o == '+':
+        print(int(op1) + int(op2))
+     
+    elif o == '-':
+        print(int(op1) - int(op2))
+    else:
+        print("This is an invalid operation...restarting")
